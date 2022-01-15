@@ -35,8 +35,6 @@
 				  $(".qty").text(t)
       		 } 
 			
-
-
 			$(".add-to-cart").click(function () {
 				var getImg = $(this).closest(".single-products").find(".productinfo img").attr("src");
 				var getPrice = $(this).closest(".overlay-content").find("h2").text();
@@ -67,18 +65,11 @@
 					listsanpham[getID] = sanpham;
 					
 				}
-			//  console.log(giohang)
-			//    $(".navbar-navt li a").text(giohang)
-			// 	 localStorage.setItem('sanpham', JSON.stringify(listsanpham))
-			// 	 listsanpham = JSON.parse(getlocal)
-			// 	 console.log(listsanpham)
-			// 	var t = (Object.keys(listsanpham).length)
-			// 	 	$(".qty").text(t)
-
-					
-
-
-				
+			
+			    localStorage.setItem('sanpham', JSON.stringify(listsanpham))
+			    listsanpham = JSON.parse(getlocal)
+				console.log(listsanpham)
+		
 			});
 			
 		});
@@ -568,8 +559,7 @@
 										<div class="overlay-content">
 											<h2>$56</h2>
 											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i
-													class="fa fa-shopping-cart"></i>Add to cart</a>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 									</div>
 									<img src="images/home/sale.png" class="new" alt="" />

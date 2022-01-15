@@ -428,8 +428,7 @@
             var json = localStorage.getItem("sanpham");
             if (json) {
                 listsanpham = JSON.parse(json);
-                console.log(listsanpham);
-                    
+                console.log(listsanpham);       
             }  
 			var tong_all=0;
             Object.keys(listsanpham).map((key, value) => { 
@@ -473,13 +472,11 @@
 							'</tr>\n';
             	$("table tbody").append(html);
 				
-
-             })
-			
-	      
-		// tăng sô lượng sản phẩm
-	    var gia;
-		$(".cart_quantity_up").click(function(){
+            })
+			  
+		   // tăng sô lượng sản phẩm
+	         var gia;
+		    $(".cart_quantity_up").click(function(){
 				var getID = $(this).closest(".cart_quantity").find(".cart_key").attr("value");
 				var soluong = $(this).closest(".cart_quantity").find(".cart_quantity_input").val();
 					soluong = parseInt(soluong) +1;
@@ -507,11 +504,10 @@
 					})
 					localStorage.setItem('sanpham', JSON.stringify(listsanpham))
 					
+		   }); 
 
-		}); 
-		// giảm sô lượng sản phẩm
-		
-		$(".cart_quantity_down").click(function(){
+ 			// giảm sô lượng sản phẩm
+		   $(".cart_quantity_down").click(function(){
 				var html=  $(this).closest(".tr")   
 				var getID = $(this).closest(".cart_quantity").find(".cart_key").attr("value");
 				var soluong = $(this).closest(".cart_quantity").find(".cart_quantity_input").attr("value");
@@ -541,32 +537,29 @@
 					
 					})
 					localStorage.setItem('sanpham', JSON.stringify(listsanpham))
-					
+	
 			
-		});
-	//xóa sản phẩm
-		$(".cart_delete").click(function(){
-			var getID = $(this).closest(".tr").find(".cart_key").attr("value");
-			var html=  $(this).closest(".tr")
-			var tongGia = $(this).closest(".tr").find(".cart_total_price").text();
- 				console.log( tongGia.replace('$',''))	
-			var  t = $(this).closest(".body").find("#tong_total");
-			var total ;   
-				 Object.keys(listsanpham).map((key, value) => {
-				  	if (getID == key) {
-				  			delete listsanpham[key];
-								 total = parseInt(t.text().replace('$',''))-    tongGia.replace('$','')
-									t.text('$'+ total);
-										html.remove();
-				  		}
-			 	});
-				 	localStorage.setItem('sanpham', JSON.stringify(listsanpham))
-					
-		});
-	  
-		
-			
-			
+		   });
+			//xóa sản phẩm
+			$(".cart_delete").click(function(){
+				var getID = $(this).closest(".tr").find(".cart_key").attr("value");
+				var html=  $(this).closest(".tr")
+				var tongGia = $(this).closest(".tr").find(".cart_total_price").text();
+					console.log( tongGia.replace('$',''))	
+				var  t = $(this).closest(".body").find("#tong_total");
+				var total ;   
+					Object.keys(listsanpham).map((key, value) => {
+						if (getID == key) {
+								delete listsanpham[key];
+									total = parseInt(t.text().replace('$',''))-    tongGia.replace('$','')
+										t.text('$'+ total);
+											html.remove();
+							}
+					});
+						localStorage.setItem('sanpham', JSON.stringify(listsanpham))
+						
+			});		
+				
     });
     </script>
 </body>
